@@ -1,16 +1,65 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Opensauceone';
+  font-weight: 300;
+  src: url('/fonts/OpenSauceOne-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Opensauceone';
+  font-weight: 400;
+  src: url('/fonts/OpenSauceOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Opensauceone';
+  font-weight: 500;
+  src: url('/fonts/OpenSauceOne-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Opensauceone';
+  src: url('/fonts/OpenSauceOne-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Opensauceone';
+  src: url('/fonts/OpenSauceOne-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Opensauceone';
+  src: url('/fonts/OpenSauceOne-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @apply font-stx bg-stx-gray;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+header {
+  background-size: 90rem;
+  background-image: url('/metaverse.svg');
+  height: 45rem;
 }
 
-* {
-  box-sizing: border-box;
+.hljs {
+  @apply block overflow-x-auto p-5 bg-black rounded-2xl text-white bg-opacity-90;
+}
+
+.hljs-keyword,
+.hljs-string {
+  @apply text-indigo-300;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-built_in,
+.hljs-attr {
+  @apply text-indigo-400;
 }

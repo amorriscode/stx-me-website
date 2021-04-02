@@ -1,65 +1,286 @@
+import { useEffect } from 'react'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import dedent from 'dedent'
+import hljs from '../utils/highlight'
+import { SiGithub } from 'react-icons/si'
+
+import Nexus from '../public/nexus.svg'
+
+const STX_ADDRESS =
+  process.env.NODE_ENV === 'development'
+    ? 'ST2X2FYCY01Y7YR2TGC2Y6661NFF3SMH0NGXPWTV5'
+    : 'SP2D71SFBCAX1VE664GKQP2Y7YMRDW6YJGVQVXB1T'
 
 export default function Home() {
+  useEffect(() => {
+    stx.me(STX_ADDRESS)
+    hljs.highlightAll()
+  }, [])
+
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>stx.me</title>
         <link rel="icon" href="/favicon.ico" />
+        <script src="/bundle.js"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/stx-me/dist/stx.me.css"
+        ></link>
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <nav className="max-w-7xl mx-auto py-10 px-20 flex justify-between">
+        <div className="flex items-center space-x-2">
+          <Nexus className="w-5" />
+          <span className="font-medium tracking-wide text-xl">stx.me</span>
         </div>
+
+        <a
+          href="https://github.com/amorriscode/stx-me"
+          className="hover:opacity-50"
+          target="_blank"
+        >
+          <SiGithub className="text-2xl" />
+        </a>
+      </nav>
+
+      <main className="max-w-7xl mx-auto space-y-20 px-4">
+        <header className="w-full bg-center bg-no-repeat rounded-2xl flex flex-col justify-center items-center text-white lg:text-center">
+          <p className="text-5xl md:text-6xl w-2/3 tracking-wide leading-snug">
+            Hassle-free STX donations for any website
+          </p>
+
+          <p className="mt-16 w-2/3 lg:w-1/3 text-lg">
+            Allow your biggest fans to support your work through a
+            Bitcoin-powered internet.
+          </p>
+        </header>
+
+        <section className="bg-white rounded-2xl p-10 md:p-20 md:grid grid-cols-2 gap-10 space-y-10">
+          <div className="space-y-10">
+            <h2 className="text-5xl tracking-wide leading-snug">
+              Receive donations in under 5 minutes
+            </h2>
+
+            <ul className="list-decimal list-inside space-y-2">
+              <li>
+                Add a <code>div</code> to your page
+              </li>
+              <li>
+                Add the{' '}
+                <span className="font-medium tracking-wide">stx.me</span>{' '}
+                library to your page
+              </li>
+              <li>Profit</li>
+            </ul>
+
+            <p>Try it out!</p>
+          </div>
+
+          <div className="flex flex-col justify-center items-center text-center text-4xl bg-stx-gray p-10 md:p-20 rounded-2xl">
+            <div id="stx-me"></div>
+          </div>
+        </section>
+
+        <section className="max-w-4xl mx-auto space-y-10">
+          <h2 className="text-5xl tracking-wide leading-snug">
+            Getting Started
+          </h2>
+
+          <div>
+            <h4 className="text-xl tracking-wide leading-snug mb-2">
+              Add the <span className="font-medium tracking-wide">stx.me</span>{' '}
+              container to your webpage
+            </h4>
+
+            <pre>
+              <code>{dedent`
+                <div id="stx-me"></div>
+              `}</code>
+            </pre>
+          </div>
+
+          <div>
+            <h4 className="text-xl tracking-wide leading-snug mb-2">
+              Add the <span className="font-medium tracking-wide">stx.me</span>{' '}
+              script to your webpage
+            </h4>
+
+            <pre>
+              <code>{dedent`
+                <script src="https://unpkg.com/stx-me/dist/stx.me.js"></script>
+              `}</code>
+            </pre>
+          </div>
+
+          <div>
+            <h4 className="text-xl tracking-wide leading-snug mb-2">
+              Initialize{' '}
+              <span className="font-medium tracking-wide">stx.me</span> with
+              your wallet address
+            </h4>
+
+            <pre>
+              <code>{dedent`
+                <script>
+                    stx.me('SP2D71SFBCAX1VE664GKQP2Y7YMRDW6YJGVQVXB1T');
+                </script>
+              `}</code>
+            </pre>
+          </div>
+
+          <div>
+            <h4 className="text-xl tracking-wide leading-snug mb-2">
+              Add <span className="font-medium tracking-wide">stx.me</span>{' '}
+              stylesheet (optional)
+            </h4>
+
+            <pre className="mb-2">
+              <code>{dedent`
+                <link rel="stylesheet" href="https://unpkg.com/stx-me/dist/stx.me.css"></link>
+              `}</code>
+            </pre>
+
+            <p className="text-xs">
+              The example on this page used the{' '}
+              <span className="font-medium tracking-wide">stx.me</span>{' '}
+              stylesheet
+            </p>
+          </div>
+
+          <div className="space-y-10">
+            <div>
+              <h3 className="text-4xl mb-2 tracking-wide leading-snug">
+                Options
+              </h3>
+
+              <p className="mb-4">
+                The <code>stx.me</code> function takes a second, optional
+                parameter of options. The following options are allowed:
+              </p>
+
+              <pre>
+                <code className="language-typescript">{dedent`
+                  interface AppDetails {
+                    name: string;
+                    icon: string;
+                  }
+
+                  interface ConfigOptions {
+                    showAddress?: boolean;
+                    appDetails?: AppDetails;
+                    successMessage?: string;
+                    buttonText?: string;
+                  }
+                `}</code>
+              </pre>
+            </div>
+
+            <div className="bg-white rounded-2xl p-5 md:p-10">
+              <h4 className="text-3xl mb-2 tracking-wide leading-snug">
+                AppDetails
+              </h4>
+
+              <p className="mb-10">
+                Used to configure what users will see witihin the Stacks wallet.
+              </p>
+
+              <table class="w-full table-fixed">
+                <thead className="border-b-2 border-black text-left">
+                  <tr className="h-14">
+                    <th>Parameter</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr className="h-20">
+                    <td>name</td>
+                    <td>
+                      <code>document.title</code>
+                    </td>
+                    <td>An app name to display in the Stacks wallet.</td>
+                  </tr>
+
+                  <tr className="h-20">
+                    <td>icon</td>
+                    <td>
+                      <code>/favicon.ico</code>
+                    </td>
+                    <td>
+                      The path to an icon to display in the Stacks wallet.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="bg-white rounded-2xl p-5 md:p-10">
+              <h4 className="text-3xl mb-2 tracking-wide leading-snug">
+                ConfigOptions
+              </h4>
+
+              <p className="mb-10">
+                Used to configure how the{' '}
+                <span className="font-medium tracking-wide">stx.me</span> button
+                behaves.
+              </p>
+
+              <table className="w-full table-fixed">
+                <thead className="border-b-2 border-black text-left">
+                  <tr className="h-14">
+                    <th>Parameter</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr className="h-20">
+                    <td>showAddress</td>
+                    <td>
+                      <code>false</code>
+                    </td>
+                    <td>Display your stacks address on your webpage.</td>
+                  </tr>
+
+                  <tr className="h-20">
+                    <td>appDetails</td>
+                    <td>See AppDetails</td>
+                    <td>Configuration for the Stacks wallet pop ups.</td>
+                  </tr>
+
+                  <tr className="h-20">
+                    <td>successMessage</td>
+                    <td>Thanks for your donation!</td>
+                    <td>
+                      A message to display to users on successful donation.
+                    </td>
+                  </tr>
+
+                  <tr className="h-20">
+                    <td>buttonText</td>
+                    <td>Send Me STX</td>
+                    <td>A message to display on the donation button.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
       </main>
 
-      <footer className={styles.footer}>
+      <footer className="max-w-7xl mx-auto p-10 flex justify-center items-center">
+        Made with <Nexus className="w-4 mx-1" /> by{' '}
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://anthonymorris.dev"
+          className="ml-1 text-stx-blue hover:opacity-75"
           target="_blank"
-          rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          amorriscode
         </a>
       </footer>
-    </div>
+    </>
   )
 }
