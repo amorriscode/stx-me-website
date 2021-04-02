@@ -3,6 +3,7 @@ import Head from 'next/head'
 import dedent from 'dedent'
 import hljs from '../utils/highlight'
 import { SiGithub } from 'react-icons/si'
+import { HiOutlineArrowNarrowRight } from 'react-icons/hi'
 
 import Nexus from '../public/nexus.svg'
 
@@ -74,7 +75,9 @@ export default function Home() {
               <li>Profit</li>
             </ul>
 
-            <p>Try it out!</p>
+            <p className="flex items-center">
+              Try it out <HiOutlineArrowNarrowRight className="ml-2 text-2xl" />
+            </p>
           </div>
 
           <div className="flex flex-col justify-center items-center text-center text-4xl bg-stx-gray p-10 md:p-20 rounded-2xl">
@@ -142,7 +145,7 @@ export default function Home() {
             </pre>
 
             <p className="text-xs">
-              The example on this page used the{' '}
+              The example on this page uses the{' '}
               <span className="font-medium tracking-wide">stx.me</span>{' '}
               stylesheet
             </p>
