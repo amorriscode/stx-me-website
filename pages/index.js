@@ -151,7 +151,7 @@ export default function Home() {
           <div className="space-y-10">
             <div>
               <h3 className="text-4xl mb-2 tracking-wide leading-snug">
-                Options
+                Configuration
               </h3>
 
               <p className="mb-4">
