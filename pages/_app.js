@@ -20,6 +20,11 @@ function MyApp({ Component, pageProps }) {
             },
           ],
         }}
+        twitter={{
+          cardType: 'summary_large_image',
+          site: '@amorriscode',
+          creator: '@amorriscode',
+        }}
       />
       <Component {...pageProps} />
     </>
