@@ -63,3 +63,7 @@ header {
 .hljs-attr {
   @apply text-indigo-400;
 }
+
+header .grain {
+  mix-blend-mode: multiply;
+}

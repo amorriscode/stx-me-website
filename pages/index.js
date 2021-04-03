@@ -69,12 +69,14 @@ export default function Home() {
       </nav>
 
       <main className="max-w-7xl mx-auto space-y-20 px-4">
-        <header className="w-full bg-center bg-no-repeat rounded-2xl flex flex-col justify-center items-center text-white lg:text-center">
-          <p className="text-5xl md:text-6xl w-2/3 tracking-wide leading-snug">
+        <header className="w-full bg-center bg-no-repeat rounded-2xl flex flex-col justify-center items-center text-white lg:text-center relative overflow-hidden">
+          <img src="/noise.png" className="absolute grain h-full w-full" />
+
+          <p className="text-5xl md:text-6xl w-2/3 tracking-wide leading-snug relative">
             Hassle-free STX donations for any website
           </p>
 
-          <p className="mt-16 w-2/3 lg:w-1/3 text-lg">
+          <p className="mt-16 w-2/3 lg:w-1/3 text-lg relative">
             Allow your biggest fans to support your work through a
             Bitcoin-powered internet.
           </p>
