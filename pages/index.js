@@ -53,7 +53,7 @@ export default function Home() {
         ></link>
       </Head>
 
-      <nav className="max-w-7xl mx-auto py-10 px-20 flex justify-between">
+      <nav className="max-w-7xl mx-auto p-10 md:px-20 flex justify-between">
         <div className="flex items-center space-x-2">
           <Nexus className="w-5" />
           <span className="font-medium tracking-wide text-xl">stx.me</span>
@@ -217,7 +217,7 @@ export default function Home() {
                 <thead className="border-b-2 border-black text-left">
                   <tr className="h-14">
                     <th>Parameter</th>
-                    <th>Default</th>
+                    <th className="hidden sm:block">Default</th>
                     <th>Description</th>
                   </tr>
                 </thead>
@@ -225,7 +225,7 @@ export default function Home() {
                 <tbody>
                   <tr className="h-20">
                     <td>name</td>
-                    <td>
+                    <td className="hidden sm:block">
                       <code>document.title</code>
                     </td>
                     <td>An app name to display in the Stacks wallet.</td>
@@ -233,7 +233,7 @@ export default function Home() {
 
                   <tr className="h-20">
                     <td>icon</td>
-                    <td>
+                    <td className="hidden sm:block">
                       <code>/favicon.ico</code>
                     </td>
                     <td>
@@ -259,7 +259,7 @@ export default function Home() {
                 <thead className="border-b-2 border-black text-left">
                   <tr className="h-14">
                     <th>Parameter</th>
-                    <th>Default</th>
+                    <th className="hidden sm:block">Default</th>
                     <th>Description</th>
                   </tr>
                 </thead>
@@ -267,7 +267,7 @@ export default function Home() {
                 <tbody>
                   <tr className="h-20">
                     <td>showAddress</td>
-                    <td>
+                    <td className="hidden sm:block">
                       <code>false</code>
                     </td>
                     <td>Display your stacks address on your webpage.</td>
@@ -275,13 +275,15 @@ export default function Home() {
 
                   <tr className="h-20">
                     <td>appDetails</td>
-                    <td>See AppDetails</td>
+                    <td className="hidden sm:block">See AppDetails</td>
                     <td>Configuration for the Stacks wallet pop ups.</td>
                   </tr>
 
                   <tr className="h-20">
                     <td>successMessage</td>
-                    <td>Thanks for your donation!</td>
+                    <td className="hidden sm:block">
+                      Thanks for your donation!
+                    </td>
                     <td>
                       A message to display to users on successful donation.
                     </td>
@@ -289,7 +291,7 @@ export default function Home() {
 
                   <tr className="h-20">
                     <td>buttonText</td>
-                    <td>Send Me STX</td>
+                    <td className="hidden sm:block">Send Me STX</td>
                     <td>A message to display on the donation button.</td>
                   </tr>
                 </tbody>
