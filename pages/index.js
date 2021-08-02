@@ -210,7 +210,7 @@ export default function Home() {
               </h4>
 
               <p className="mb-10">
-                Used to configure what users will see witihin the Stacks wallet.
+                Used to configure what users will see within the Stacks wallet.
               </p>
 
               <table class="w-full table-fixed">
