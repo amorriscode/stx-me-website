@@ -12,9 +12,11 @@ const STX_ADDRESS =
     ? 'ST2X2FYCY01Y7YR2TGC2Y6661NFF3SMH0NGXPWTV5'
     : 'SP2D71SFBCAX1VE664GKQP2Y7YMRDW6YJGVQVXB1T'
 
+const network = process.env.NODE_ENV === 'development' ? 'testnet' : 'mainnet'
+
 export default function Home() {
   useEffect(() => {
-    stx.me(STX_ADDRESS)
+    stx.me(STX_ADDRESS, { network })
     hljs.highlightAll()
   }, [])
 
@@ -199,6 +201,7 @@ export default function Home() {
                     appDetails?: AppDetails;
                     successMessage?: string;
                     buttonText?: string;
+                    network?: string;
                   }
                 `}</code>
               </pre>
@@ -213,11 +216,11 @@ export default function Home() {
                 Used to configure what users will see within the Stacks wallet.
               </p>
 
-              <table class="w-full table-fixed">
+              <table className="w-full table-fixed">
                 <thead className="border-b-2 border-black text-left">
                   <tr className="h-14">
                     <th>Parameter</th>
-                    <th className="hidden sm:block">Default</th>
+                    <th className="hidden sm:table-cell">Default</th>
                     <th>Description</th>
                   </tr>
                 </thead>
@@ -225,7 +228,7 @@ export default function Home() {
                 <tbody>
                   <tr className="h-20">
                     <td>name</td>
-                    <td className="hidden sm:block">
+                    <td className="hidden sm:table-cell">
                       <code>document.title</code>
                     </td>
                     <td>An app name to display in the Stacks wallet.</td>
@@ -233,7 +236,7 @@ export default function Home() {
 
                   <tr className="h-20">
                     <td>icon</td>
-                    <td className="hidden sm:block">
+                    <td className="hidden sm:table-cell">
                       <code>/favicon.ico</code>
                     </td>
                     <td>
@@ -259,7 +262,7 @@ export default function Home() {
                 <thead className="border-b-2 border-black text-left">
                   <tr className="h-14">
                     <th>Parameter</th>
-                    <th className="hidden sm:block">Default</th>
+                    <th className="hidden sm:table-cell">Default</th>
                     <th>Description</th>
                   </tr>
                 </thead>
@@ -267,7 +270,7 @@ export default function Home() {
                 <tbody>
                   <tr className="h-20">
                     <td>showAddress</td>
-                    <td className="hidden sm:block">
+                    <td className="hidden sm:table-cell">
                       <code>false</code>
                     </td>
                     <td>Display your stacks address on your webpage.</td>
@@ -275,13 +278,13 @@ export default function Home() {
 
                   <tr className="h-20">
                     <td>appDetails</td>
-                    <td className="hidden sm:block">See AppDetails</td>
+                    <td className="hidden sm:table-cell">See AppDetails</td>
                     <td>Configuration for the Stacks wallet pop ups.</td>
                   </tr>
 
                   <tr className="h-20">
                     <td>successMessage</td>
-                    <td className="hidden sm:block">
+                    <td className="hidden sm:table-cell">
                       Thanks for your donation!
                     </td>
                     <td>
@@ -291,8 +294,16 @@ export default function Home() {
 
                   <tr className="h-20">
                     <td>buttonText</td>
-                    <td className="hidden sm:block">Send Me STX</td>
+                    <td className="hidden sm:table-cell">Send Me STX</td>
                     <td>A message to display on the donation button.</td>
+                  </tr>
+
+                  <tr className="h-20">
+                    <td>network</td>
+                    <td className="hidden sm:table-cell">
+                      <code>mainnet</code>
+                    </td>
+                    <td>The Stacks network transactions should be sent on.</td>
                   </tr>
                 </tbody>
               </table>
